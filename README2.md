@@ -51,16 +51,42 @@ Essa abordagem de "inativação" em vez de exclusão física é vantajosa por v�
 
 ## Como Executar o Projeto
 
+### Usando Python Local
+
 1. **Instalação das Dependências**: Certifique-se de ter o Python e o pip instalados. Em seguida, instale as dependências necessárias:
 
    ```bash
    pip install fastapi[all] sqlalchemy
    ```
 
-2. **Executar a Aplicação**: Navegue até o diretório do projeto e execute o seguinte comando:
+2. **Executar a Aplicação**: Navegue até o diretório app e execute o seguinte comando:
 
    ```bash
-   uvicorn app.main:app --reload
+   uvicorn main:app --reload
    ```
 
 3. **Acessar a API**: A API estará disponível em `http://127.0.0.1:8000`. Você pode usar ferramentas como Postman ou Insomnia para testar as rotas, ou acessar a documentação automática gerada pelo FastAPI em `http://127.0.0.1:8000/docs`.
+
+### Usando Docker Compose
+
+1. **Pré-requisitos**: Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
+
+2. **Executar o Container**: No diretório App do projeto, execute:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   Este comando irá:
+
+   - Construir a imagem do container
+   - Iniciar o serviço da API
+   - Mapear a porta 8000 do container para a porta 8000 do seu host
+
+3. **Acessar a API**: A API estará disponível em `http://localhost:8000`. A documentação pode ser acessada em `http://localhost:8000/docs`.
+
+4. **Parar o Container**: Para parar a execução, use:
+
+   ```bash
+   docker-compose down
+   ```
